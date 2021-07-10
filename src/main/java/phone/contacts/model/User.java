@@ -1,6 +1,8 @@
 package phone.contacts.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -21,6 +23,14 @@ public class User {
 
     @Column
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_contacts",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "contact_id")
+    )
+    private List<Contact> contacts;
 
     @Override
     public boolean equals(Object o) {
