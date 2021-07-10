@@ -11,15 +11,17 @@ import phone.contacts.repository.UserRepository;
  */
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
 
     @Autowired
     private UserRepository userRepository;
 
+    @Override
     public void add(User user) {
         userRepository.save(user);
     }
 
+    @Override
     public User findBy(String username, String password) {
         return userRepository.findByUsernameAndPassword(username, password);
     }
