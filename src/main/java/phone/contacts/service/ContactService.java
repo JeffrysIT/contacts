@@ -49,4 +49,5 @@ public class ContactService implements IContactService {
         return (List<Contact>) contactRepository.findAll();
     }
 
+
 }

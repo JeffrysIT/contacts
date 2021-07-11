@@ -20,4 +20,5 @@ public interface IContactService {
 
     List<Contact> getAll();
 
+
 }
